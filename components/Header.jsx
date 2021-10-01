@@ -1,20 +1,21 @@
-import Link from 'next/link'
-import NavToggle from '../NavToggle'
-import styled from 'styled-components'
-import { useSelector } from 'react-redux'
+import Link from 'next/link';
+import styled from 'styled-components';
+import { useSelector } from 'react-redux';
 
 const HeaderContainer = styled.div`
     display: flex;
+    position: fixed;
     flex-direction: row;
-    width: 90%;
-    padding: 20px 0 20px 10%;
+    width: 100%;
+    padding: 20px 10%;
     background: #000;
 `
 
 const Logo = styled.div`
     display: flex;
-    align-items: center;
     width: 10%;
+    margin: 0 auto;
+    align-items: center;
     /* LOGO 이미지로 변경 시 background까지 삭제 */
     & > div {
         color: #000;
@@ -28,7 +29,8 @@ const Logo = styled.div`
 const Menu = styled.div`
     display: flex;
     flex-direction: row;
-    width: 70%;
+    width: 60%;
+    margin: 0 auto;
     padding: 20px 30px;
     & > div > a {
         margin: 0 20px;
@@ -40,14 +42,15 @@ const Menu = styled.div`
         color: #fff;
         transition: 0.5s;
     }
-    /* background: blue; */
 `
 
 const Menu2 = styled.div`
     display: flex;
+    position: relative;
     flex-direction: row;
-    width: 20%;
+    margin: 0 auto;
     padding: 20px 30px;
+    float: right;
     & > div {
         padding: 0px 10px;
         border-left: 1px solid;
@@ -68,7 +71,7 @@ const Menu2 = styled.div`
 const LoginComponent = () => {
     return (
         <>
-            <div><Link href="/login"><a>로그인</a></Link></div>
+            <div><Link href="/logins/login"><a>로그인</a></Link></div>
         </>
     )
 }
@@ -113,14 +116,13 @@ const Header = () => {
                             : <LogoutComponent />
                     }
                     <div>
-                        <Link href="/join">
+                        <Link href="/joins/join">
                             <a>회원가입</a>
                         </Link>
                     </div>
                 </Menu2>
-                <NavToggle />
             </HeaderContainer>
     )
 }
 
-export default Header
+export default Header;
